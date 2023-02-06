@@ -1,0 +1,22 @@
+{
+  "name": "learn-react",
+  "version": "1.0.0",
+  "description": "Learn react from Namaste React",
+  
+  "scripts": {
+    "test": "Jest"
+  },
+  "author": "vijayakumar",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "browserslist": [
+    "last 2 Chrome versions"
+  ]
+}
