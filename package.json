@@ -2,7 +2,6 @@
   "name": "learn-react",
   "version": "1.0.0",
   "description": "Learn react from Namaste React",
-  
   "scripts": {
     "test": "Jest"
   },
@@ -18,5 +17,14 @@
   },
   "browserslist": [
     "last 2 Chrome versions"
-  ]
+  ],
+  
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayakumardpr/namaste-react-assignment.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vijayakumardpr/namaste-react-assignment/issues"
+  },
+  "homepage": "https://github.com/vijayakumardpr/namaste-react-assignment#readme"
 }

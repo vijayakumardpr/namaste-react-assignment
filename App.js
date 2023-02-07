@@ -19,7 +19,7 @@ const el = React.createElement("h1",{
    style:{
     color:"red"
  }
-},"Welcome to React")
+},"Welc ome to React")
 
 const el2 = React.createElement("h1",{
     id:"title",
