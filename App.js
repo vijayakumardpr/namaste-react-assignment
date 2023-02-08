@@ -11,8 +11,10 @@
 
 // root.appendChild(el)
 
-import React from "react"
-import ReactDOM  from "react-dom/client"
+import React from "react";
+import ReactDOM  from "react-dom/client";
+import Logo from "./images/amazon.png";
+import Avatar from "./images/avatar.png";
 
 // const el = React.createElement("h1",{
 //     id:"title",
@@ -47,25 +49,89 @@ import ReactDOM  from "react-dom/client"
 
 // console.log(container)
 
-const Header = ()=>(
-    <h1>Header Variable</h1>
-)
+// const header =  "vijay" // babel to react element
 
-const HeaderComponent = () =>{
-     let isTrue = false;
-   return (<div>
-            
-            <Header/>
-            <h1>Welcome to React !!!!</h1>
-            <h2>Hello World</h2>
-        </div>)
+
+// console.log(header); // js object
+
+// function foo(){
+//  return "Rajaduari"
+// }
+
+//console.log(foo())
+
+// function Dummy(){
+//     return <h4 style={styles={color:"red"}}>dummy from function Component</h4>
+// }
+
+
+//console.log(dummy());
+// const HeaderComponent = () =>{
+//      let isTrue = false;
+//    return (
+//         <div>
+//             <h1>Welcome to React !!!!</h1>
+//             <h2>Hello World</h2>
+//         </div>)
+// }
+
+
+//const root = ReactDOM.createRoot(document.getElementById("root"))
+
+//root.render(<HeaderComponent/>)
+
+
+ 
+ //Assignment
+
+//  const header1 = React.createElement("h1",null,"Header1")
+//  const header2 = React.createElement("h2",null,"Header2")
+//  const header3 = React.createElement("h3",null,"Header3")
+
+//  const container = React.createElement("div",{
+//     className:"title"
+//  },[header1,header2,header3])
+
+
+//type 2
+
+// const element = (
+//     <div className="title">
+//         <h1>Header1</h1>
+//         <h2>Header2</h2>
+//         <h3>Header3</h3>
+//     </div>
+// )
+
+
+//type 3
+
+// const HeaderComponent1 =()=>{
+//     return <div>Begining</div>
+// }
+
+// const TitleComponent = ()=>{
+//     return (
+//     <div className="title">
+//          <HeaderComponent1/>
+//          <h1>Header1</h1>
+//          <h2>Header2</h2>
+//          <h3>Header3</h3>
+         
+//      </div>
+//     )
+// }
+
+const HeaderComponent = () => {
+    return (
+        <div className="navbar">
+            <img src={Logo} className="logo" alt="logo"/>
+            <input placeholder="Search Items"/>
+            <img src={Avatar} className="avatar" alt="myProfile"/>
+        </div>
+    )
 }
 
+ const root =  ReactDOM.createRoot(document.getElementById("root"))
 
-const root = ReactDOM.createRoot(document.getElementById("root"))
-
-root.render(<HeaderComponent/>)
-
-
- 
- 
+ root.render(<HeaderComponent/>)
