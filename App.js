@@ -1440,7 +1440,8 @@ const RestaurantCard = ({cloudinaryImageId,name,cuisines,avgRating}) => {
       />
       <h3>{name}</h3>
       <h5 style={{color:"rgba(0,0,0,0.5)"}}>{cuisines.join(",")}</h5>
-      <h5>{avgRating}</h5>
+      <h5 className={+avgRating >=4 ?"positive-review": +avgRating >=3 ?"moderate-review" :"" }>{avgRating}</h5>
+      <h5 className="prompt-display">QUICK VIEW</h5>
     </div>
   );
 };

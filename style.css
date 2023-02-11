@@ -32,6 +32,7 @@ input{
     justify-content: space-between;
     align-items: center;
     border: 1px solid black;
+    margin: 10px;
 
 }
 .restaurent-logo{
@@ -80,4 +81,24 @@ input{
     margin: 0 auto;
 
     
+}
+
+.prompt-display{
+    display: none;
+
+}
+
+.restaurant-card:hover .prompt-display{
+    display: block;
+    text-align: center;
+}
+
+.positive-review{
+    color: #48c479;
+    /* color: #fff; */
+}
+
+.moderate-review{
+    color: #db7c38;
+    /* color: #fff; */
 }
