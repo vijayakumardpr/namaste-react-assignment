@@ -1,6 +1,7 @@
 import {IMG_URL} from "../constant"
 
-const Header = () => {
+const Header = ({isLogging}) => {
+  let isTrue = true
     return (
       <div className="res-header">
         <a href="/">
@@ -16,8 +17,10 @@ const Header = () => {
             <li>Help</li>
             <li>Profile</li>
             <li>Cart</li>
+            <button onClick={() => isLogging(isTrue)}>Logout</button>
           </ul>
         </nav>
+        
       </div>
     );
   };

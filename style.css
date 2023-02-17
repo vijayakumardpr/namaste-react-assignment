@@ -102,3 +102,17 @@ input{
     color: #db7c38;
     /* color: #fff; */
 }
+
+.restaurant-login{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    gap: 16px;
+}
+
+.login-username,.login-password,.login{
+    width: 100%;
+}
+
