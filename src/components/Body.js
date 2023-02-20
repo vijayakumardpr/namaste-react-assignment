@@ -1,8 +1,10 @@
 import RestaurantCard from "../components/RestaurantCard";
 import Authentication from "../components/Authentication";
+import Shimmer from "../components/Shimmer";
 
 import { listOfRes } from "../constant";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 const API_URL =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=11.163008225945527&lng=77.35719759017229&page_type=DESKTOP_WEB_LISTING";
@@ -13,23 +15,17 @@ const Body = () => {
   const [resName, setResName] = useState("");
   const [restaurants, setRestaurants] = useState([]);
   const [allRestaurants, setAllRestaurants] = useState([]);
-  const [after, setAfter] = useState("");
 
   useEffect(() => {
     getData();
-
-    setTimeout(() => {
-      setAfter(delay());
-    }, 1000);
-    
   }, []);
 
   async function getData() {
     const response = await fetch(API_URL);
     const result = await response.json();
-    console.log(result.data.cards[2].data.data.cards);
-    setRestaurants(result.data.cards[2].data.data.cards);
-    setAllRestaurants(result.data.cards[2].data.data.cards);
+    //console.log(result.data.cards[2].data.data.cards);
+    setRestaurants(result?.data?.cards[2]?.data?.data?.cards);
+    setAllRestaurants(result?.data?.cards[2]?.data?.data?.cards);
   }
 
   function filterData(resName, restaurants) {
@@ -44,9 +40,8 @@ const Body = () => {
   }
 
   //if (restaurants.length === 0) return <h1>No result found</h1>;
-  function delay() {
-    return <h1> No data found</h1>;
-  }
+
+  if (allRestaurants.length === 0) return <Shimmer />;
 
   return (
     <>
@@ -74,11 +69,15 @@ const Body = () => {
         </button>
       </div>
       {restaurants.length === 0 ? (
-        after
+        <h1> No data found</h1>
       ) : (
         <div className="restaurant-container">
           {restaurants.map((items, i) => {
-            return <RestaurantCard key={items.data.id} {...items.data} />;
+            return(
+                <Link className="decoration" to={"/restaurants/" + items.data.id} key={items.data.id}>
+                  <RestaurantCard {...items.data} />
+                </Link>
+              );
           })}
         </div>
       )}

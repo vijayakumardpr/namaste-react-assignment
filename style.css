@@ -43,11 +43,13 @@ input{
 .res-navbar > .res-list-items{
     display: flex;
    
+   
 }
 
 .res-navbar > .res-list-items > li{
     list-style-type: none;
     padding: 10px;
+    
     
 }
 
@@ -60,6 +62,9 @@ input{
     flex-direction: column;
     gap: 10px;
     overflow: hidden;
+    color: initial;
+    text-decoration: none;
+    
 }
 
 .restaurant-card:hover{
@@ -74,6 +79,8 @@ input{
 .restaurant-card > .card-image{
     width: 100%;
 }
+
+
 
 .restaurant-container{
     display: flex;
@@ -116,3 +123,17 @@ input{
     width: 100%;
 }
 
+.skeleton{
+    width: 200px;
+    height: 200px;
+    background-color: lightgray;
+    margin: 20px;
+}
+
+.restaurantMenu-card{
+    display: flex;
+}
+
+.decoration{
+    text-decoration: none;
+}

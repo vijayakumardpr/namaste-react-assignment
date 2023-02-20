@@ -4,23 +4,29 @@ import Authentication from "./components/Authentication";
 import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
-// import "./style.css"
+import Error from "./components/Error";
+
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 const AppLayout = () => {
-  const [isTrue, setIsTrue] = useState(true);
+  const [isTrue, setIsTrue] = useState(false);
 
   function isLogging(message) {
     setIsTrue(message);
   }
 
+  console.log(RouterProvider);
+
+  //console.log(createBrowserRouter);
   return (
     <>
       {isTrue ? (
         <Authentication isLogging={isLogging} />
       ) : (
         <>
-          <Header isLogging={isLogging}/>
-          <Body />
+          <Header isLogging={isLogging} />
+          <Outlet />
           <Footer />
         </>
       )}
@@ -28,6 +34,24 @@ const AppLayout = () => {
   );
 };
 
+const appRouter = createBrowserRouter([
+  {
+    path: "/",
+    element: <AppLayout />,
+    errorElement: <Error />,
+    children: [
+      {
+        path:"/",
+        element:<Body/>
+      },
+      {
+        path: "/restaurants/:ids",
+        element: <RestaurantMenu />,
+      },
+    ],
+  },
+]);
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
-root.render(<AppLayout />);
+root.render(<RouterProvider router={appRouter} />);
