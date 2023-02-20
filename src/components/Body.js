@@ -47,12 +47,12 @@ const Body = () => {
     <>
       <div className="search-container">
         <input
-          type="text"
+          type="search"
           placeholder="Search"
           value={resName}
           onChange={(e) => {
             setResName(e.target.value);
-            //setRestaurants(filterData(resName, restaurants));
+            setRestaurants(filterData(e.target.value, allRestaurants));
           }}
         />
         <button
