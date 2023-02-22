@@ -26,6 +26,7 @@ const Body = () => {
     //console.log(result.data.cards[2].data.data.cards);
     setRestaurants(result?.data?.cards[2]?.data?.data?.cards);
     setAllRestaurants(result?.data?.cards[2]?.data?.data?.cards);
+    console.log(restaurants);
   }
 
   function filterData(resName, restaurants) {
@@ -41,7 +42,7 @@ const Body = () => {
 
   //if (restaurants.length === 0) return <h1>No result found</h1>;
 
-  if (allRestaurants.length === 0) return <Shimmer />;
+  if (allRestaurants?.length === 0) return <Shimmer />;
 
   return (
     <>
@@ -68,11 +69,11 @@ const Body = () => {
           Search
         </button>
       </div>
-      {restaurants.length === 0 ? (
+      {restaurants?.length === 0 ? (
         <h1> No data found</h1>
       ) : (
         <div className="restaurant-container">
-          {restaurants.map((items, i) => {
+          {restaurants?.map((items, i) => {
             return(
                 <Link className="decoration" to={"/restaurants/" + items.data.id} key={items.data.id}>
                   <RestaurantCard {...items.data} />

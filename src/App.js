@@ -5,6 +5,9 @@ import Header from "./components/Header";
 import Body from "./components/Body";
 import Footer from "./components/Footer";
 import Error from "./components/Error";
+import Profile from "./components/Profile";
+import Contactus from "./components/Contactus";
+import Task from "./components/Task";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -16,7 +19,7 @@ const AppLayout = () => {
     setIsTrue(message);
   }
 
-  console.log(RouterProvider);
+  // console.log(RouterProvider);
 
   //console.log(createBrowserRouter);
   return (
@@ -41,8 +44,16 @@ const appRouter = createBrowserRouter([
     errorElement: <Error />,
     children: [
       {
-        path:"/",
-        element:<Body/>
+        path: "/",
+        element: <Body />,
+      },
+      {
+        path: "/profile",
+        element: <Profile />,
+      },
+      {
+        path: "/contactus",
+        element: <Contactus />,
       },
       {
         path: "/restaurants/:ids",
