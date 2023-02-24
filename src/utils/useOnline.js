@@ -2,10 +2,8 @@ import { useEffect, useState } from "react";
 
 const useOnline = () => {
   const [isOnline, setIsOnline] = useState(true);
-  console.log("1");
 
   useEffect(() => {
-    console.log("2");
     const handleOnline = () => {
       setIsOnline(true);
     };
@@ -21,7 +19,6 @@ const useOnline = () => {
     };
   }, []);
 
-  console.log("3");
   return isOnline;
 };
 
