@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Authentication from "./components/Authentication";
 import Header from "./components/Header";
@@ -11,6 +11,9 @@ import Task from "./components/Task";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
+//import Instamart from "./components/Instamart"
+
+const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
   const [isTrue, setIsTrue] = useState(false);
@@ -58,6 +61,15 @@ const appRouter = createBrowserRouter([
       {
         path: "/restaurants/:ids",
         element: <RestaurantMenu />,
+      },
+      {
+        path: "/instamart",
+
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Instamart />
+          </Suspense>
+        ),
       },
     ],
   },

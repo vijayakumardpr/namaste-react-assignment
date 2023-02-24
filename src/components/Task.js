@@ -1,37 +1,17 @@
 import { useState, useEffect } from "react";
+import Boxes from "../components/Boxes"
 
 const Task = () => {
-  const [data, setData] = useState([]);
+  const [toggle,setToggle] = useState(true)
 
-  function removeData(id) {
-    return data.filter((el) => el.id !== id);
-  }
-
-  useEffect(() => {
-    getData();
-  }, []);
-
-  async function getData() {
-    const response = await fetch("https://jsonplaceholder.typicode.com/posts/");
-    const data = await response.json();
-    setData(data.slice(0,10));
-    
+  function handle(data){
+    // console.log(data);
+    return setToggle(data)
   }
   return (
-    <div>
-      {data.map((el) => (
-        <div key={el.id}>
-          {el.title}
-          <button
-            onClick={() => {
-              const data = removeData(el.id)
-              setData(data)
-            }}
-          >
-            Delete
-          </button>
-        </div>
-      ))}
+    <div className="box-container">
+      <Boxes toggle={{toggle,handle}}/>
+      <Boxes toggle={{toggle,handle}}/>
     </div>
   );
 };

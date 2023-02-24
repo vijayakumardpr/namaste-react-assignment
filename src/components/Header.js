@@ -1,6 +1,6 @@
 import { IMG_URL } from "../constant";
-import {Link} from "react-router-dom"
-
+import { Link } from "react-router-dom";
+import useOnline from "../utils/useOnline";
 const Header = ({ isLogging }) => {
   let isTrue = true;
   return (
@@ -12,11 +12,18 @@ const Header = ({ isLogging }) => {
         <ul className="res-list-items">
           <li>Offers</li>
           <li>Help</li>
-          <Link to="/profile">
+          <Link className="decoration" to="/profile">
             <li>Profile</li>
           </Link>
           <li>Cart</li>
-          <button onClick={() => isLogging(isTrue)}>Logout</button>
+          <Link to="instamart"><li>Instamart</li></Link>
+          
+          <button
+            style={{ backgroundColor: useOnline() ? "green" : "red" }}
+            onClick={() => isLogging(isTrue)}
+          >
+            Logout
+          </button>
         </ul>
       </nav>
     </div>
