@@ -4,22 +4,22 @@ import useOnline from "../utils/useOnline";
 const Header = ({ isLogging }) => {
   let isTrue = true;
   return (
-    <div className="res-header">
+    <div className="flex justify-between bg-white shadow sticky top-0 z-10">
       <a href="/">
-        <img className="restaurent-logo" src={IMG_URL} alt="res-logo" />
+        <img className="h-[80px]" src={IMG_URL} alt="res-logo" />
       </a>
-      <nav className="res-navbar">
-        <ul className="res-list-items">
-          <li>Offers</li>
-          <li>Help</li>
-          <Link className="decoration" to="/profile">
+      <nav>
+        <ul className="flex m-2">
+          <li className="p-3">Offers</li>
+          <li className="p-3">Help</li>
+          <Link className="p-3" to="/profile">
             <li>Profile</li>
           </Link>
-          <li>Cart</li>
-          <Link to="instamart"><li>Instamart</li></Link>
+          <li className="p-3">Cart</li>
+          <Link className="p-3" to="instamart"><li>Instamart</li></Link>
           
-          <button
-            style={{ backgroundColor: useOnline() ? "green" : "red" }}
+          <button className={useOnline()?"bg-green-500 p-3 text-white":"bg-red-500 p-3 text-white"}
+            // style={{ backgroundColor: useOnline() ? "green" : "red" }}
             onClick={() => isLogging(isTrue)}
           >
             Logout

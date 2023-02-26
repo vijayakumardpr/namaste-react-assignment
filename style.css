@@ -1,8 +1,16 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+
 * {
   margin: 0;
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
 }
+
 .logo {
   width: 100px;
 }
@@ -93,12 +101,12 @@ input {
 
 .positive-review {
   color: #48c479;
-  /* color: #fff; */
+  
 }
 
 .moderate-review {
   color: #db7c38;
-  /* color: #fff; */
+  
 }
 
 .restaurant-login {
@@ -151,3 +159,12 @@ a {
 li {
   text-decoration: none;
 }
+
+.carousel- {
+  text-align: center;
+}
+.newCarousel {
+  width: 300px;
+  height: 80%;
+  margin: 20px;
+} */

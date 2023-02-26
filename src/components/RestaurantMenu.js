@@ -8,15 +8,17 @@ const RestaurantMenu = () => {
 
   const restaurant = useRestaurant(ids);
 
- 
-
   if (!restaurant) return <Shimmer />;
 
   return (
-    <div className="restaurantMenu-card">
-      <div>
-        <img src={IMGS_URL + restaurant?.cloudinaryImageId} />
-        <div>{restaurant?.name}</div>
+    <div className="flex flex-col">
+      <div className="bg-gray-800 flex justify-between text-white sticky top-0 z-10">
+        <img className="w-80" src={IMGS_URL + restaurant?.cloudinaryImageId} />
+        <div>
+          {restaurant?.name}
+          {restaurant?.cuisines.join(",")}
+        </div>
+        <div></div>
       </div>
       <ul>
         {Object.values(restaurant?.menu?.items).map((el, i) => (

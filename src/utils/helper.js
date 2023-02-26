@@ -8,3 +8,5 @@ export function filterData(resName, restaurants) {
       return filterData;
     }
   }
+
+

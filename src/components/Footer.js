@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 
-
-
 const Footer = () => {
-
   return (
-    <div>
-      <h4>Footer</h4>
-     
+    <div className="mt-4 py-4 border-[1px] border-t-gray-400">
+      <h4 className="text-center">Designed & developed by Vijayakumar(Namaste React)</h4>
     </div>
   );
 };
