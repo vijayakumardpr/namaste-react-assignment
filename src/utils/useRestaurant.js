@@ -11,7 +11,7 @@ const useRestaurant = (ids) => {
   async function getRestaurant() {
     const response = await fetch(IMG_URL_RESTAURANTMENU + ids);
     const shop = await response.json();
-    console.log(Object.values(shop?.data?.menu?.items));
+    //console.log(Object.values(shop?.data?.menu?.items));
     setRestaurant(shop?.data);
   }
   return restaurant;
