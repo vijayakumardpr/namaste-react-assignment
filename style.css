@@ -1,0 +1,170 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+.logo {
+  width: 100px;
+}
+
+.avatar {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: lightgoldenrodyellow;
+  filter: drop-shadow(
+    rgba(0, 0, 0, 0.16) 0px 3px 6px,
+    rgba(0, 0, 0, 0.23) 0px 3px 6px
+  );
+}
+
+input {
+  height: 25px;
+  width: 50%;
+  outline: none;
+}
+
+.res-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  margin: 10px;
+}
+.restaurent-logo {
+  width: 150px;
+  height: 75px;
+}
+
+.res-navbar > .res-list-items {
+  display: flex;
+}
+
+.res-navbar > .res-list-items > li {
+  list-style-type: none;
+  padding: 10px;
+}
+
+.restaurant-card {
+  width: 250px;
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+  color: initial;
+  text-decoration: none;
+}
+
+.restaurant-card:hover {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.card-image:hover {
+  transform: scale(1.05);
+  transition: all 500ms ease-in-out;
+}
+
+.restaurant-card > .card-image {
+  width: 100%;
+}
+
+.restaurant-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+}
+
+.prompt-display {
+  display: none;
+}
+
+.restaurant-card:hover .prompt-display {
+  display: block;
+  text-align: center;
+}
+
+.positive-review {
+  color: #48c479;
+  
+}
+
+.moderate-review {
+  color: #db7c38;
+  
+}
+
+.restaurant-login {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  gap: 16px;
+}
+
+.login-username,
+.login-password,
+.login {
+  width: 100%;
+}
+
+.skeleton {
+  width: 200px;
+  height: 200px;
+  background-color: lightgray;
+  margin: 20px;
+}
+
+.restaurantMenu-card {
+  display: flex;
+}
+
+.decoration {
+  text-decoration: none;
+}
+
+.box-container {
+  display: flex;
+  justify-content: center;
+}
+
+.box {
+  width: 100px;
+  height: 100px;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+a {
+  list-style: none;
+}
+
+li {
+  text-decoration: none;
+}
+
+.carousel- {
+  text-align: center;
+}
+.newCarousel {
+  width: 300px;
+  height: 80%;
+  margin: 20px;
+} */
