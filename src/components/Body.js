@@ -15,10 +15,10 @@ const Body = () => {
   if (!isOnline)
     return <h1> 🗼Offline, Pls check your internet connection... </h1>;
 
-  if (allRestaurants?.length === 0) return <Shimmer />;
+  //if (allRestaurants?.length === 0) return <Shimmer />;
 
-  return (
-    <div className="">
+  return (allRestaurants?.length === 0) ? <Shimmer /> : (
+    <div>
       <div className="flex my-5 justify-center">
         <input
           type="search"
