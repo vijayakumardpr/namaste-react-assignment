@@ -5,19 +5,28 @@ import useOnline from "../utils/useOnline";
 import useRestaurantCard from "../utils/useRestaurantCard";
 import { Link } from "react-router-dom";
 import OwlCarousel from "./OwlCarousel";
+import Task from "./Task"
+import UserContext from "../utils/UserContext";
+import { useContext } from "react";
 
 const Body = () => {
   const { restaurants, allRestaurants, resName, setResName, setRestaurants } =
     useRestaurantCard();
 
+  const { user, setUser } = useContext(UserContext);
+
+  console.log(user);
   const isOnline = useOnline();
 
-  if (!isOnline)
-    return <h1> 🗼Offline, Pls check your internet connection... </h1>;
+  if (!isOnline) return <Task />
 
-  //if (allRestaurants?.length === 0) return <Shimmer />;
+  // if (!isOnline)
+  //   return <h1> 🗼Offline, Pls check your internet connection... </h1>;
 
-  return (allRestaurants?.length === 0) ? <Shimmer /> : (
+  if (allRestaurants?.length === 0) return <Shimmer />;
+
+
+  return (
     <div>
       <div className="flex my-5 justify-center">
         <input
@@ -43,6 +52,9 @@ const Body = () => {
         >
           Search
         </button>
+        <input type="text" value={user.user.name}
+          onChange={(e) => setUser({ user: { name: e.target.value } })}
+        />
       </div>
       {/* <OwlCarousel /> */}
       {restaurants?.length === 0 ? (

@@ -1,25 +1,25 @@
 import React, { useEffect, useState } from "react"
 
-const Contactus =() =>{
+const Contactus = () => {
 
-    const [count,setCount] = useState(0)
+    const [count, setCount] = useState(0)
 
     console.log("render")
 
-    useEffect(()=>{
+    useEffect(() => {
         console.log("useEffect");
 
-        return ()=>{
+        return () => {
             console.log("WillUnMount");
         }
-    },[count])
+    }, [count])
 
     return (
-        
+
         <div>
             {console.log("DOM update")}
             <h4>{count}</h4>
-            <button onClick={()=>{setCount(count => count + 1)}}>inc</button>
+            <button onClick={() => { setCount(count => count + 1) }}>inc</button>
         </div>
     )
 }

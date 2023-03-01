@@ -8,6 +8,7 @@ import Error from "./components/Error";
 import Profile from "./components/Profile";
 import Contactus from "./components/Contactus";
 import Task from "./components/Task";
+import UserContext from "./utils/UserContext";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -17,25 +18,34 @@ const Instamart = lazy(() => import("./components/Instamart"));
 
 const AppLayout = () => {
   const [isTrue, setIsTrue] = useState(false);
+  const [user, setUser] = useState({
+    user: {
+      name: "Steve smith",
+      place: "Australia"
+    }
+  })
 
   function isLogging(message) {
     setIsTrue(message);
   }
 
-  // console.log(RouterProvider);
-
-  //console.log(createBrowserRouter);
   return (
     <>
-      {isTrue ? (
-        <Authentication isLogging={isLogging} />
-      ) : (
-        <>
-          <Header isLogging={isLogging} />
-          <Outlet />
-          <Footer />
-        </>
-      )}
+      <UserContext.Provider
+        value={{
+          user: user,
+          setUser: setUser
+        }} >
+        {isTrue ? (
+          <Authentication isLogging={isLogging} />
+        ) : (
+          <>
+            <Header isLogging={isLogging} />
+            <Outlet />
+            <Footer />
+          </>
+        )}
+      </UserContext.Provider>
     </>
   );
 };

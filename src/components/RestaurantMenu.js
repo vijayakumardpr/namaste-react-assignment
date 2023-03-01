@@ -11,7 +11,7 @@ const RestaurantMenu = () => {
 
   if (!restaurant) return <Shimmer />;
 
-  //console.log(restaurant);
+  console.log(restaurant);
   return (
     <div className="flex flex-col ">
       <div className="bg-gray-900 flex justify-center p-10 text-white sticky top-0 z-10">
