@@ -1,12 +1,6 @@
-import { createContext } from "react"
+import { createContext, useContext } from "react"
 
-const UserContext = createContext({
-    user: {
-        name: "vijayakumar",
-        role: "UI Developer"
-    }
-})
-
+const UserContext = createContext("light")
 
 
 export default UserContext

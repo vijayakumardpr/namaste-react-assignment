@@ -13,9 +13,9 @@ const Body = () => {
   const { restaurants, allRestaurants, resName, setResName, setRestaurants } =
     useRestaurantCard();
 
-  const { user, setUser } = useContext(UserContext);
+  const { isDark, setIsDark } = useContext(UserContext);
 
-  console.log(user);
+
   const isOnline = useOnline();
 
   if (!isOnline) return <Task />
@@ -27,12 +27,12 @@ const Body = () => {
 
 
   return (
-    <div>
-      <div className="flex my-5 justify-center">
+    <div className={isDark ? "bg-white text-gray-800" : "bg-gray-800 text-white"}>
+      <div className="flex justify-center">
         <input
           type="search"
           placeholder="Search"
-          className="border-[1px] border-gray-500 focus:outline-none p-2 w-2/4 focus:bg-orange-100"
+          className="border border-gray-500 focus:outline-none p-2 w-2/4 text-gray-800"
           value={resName}
           onChange={(e) => {
             setResName(e.target.value);
@@ -52,9 +52,9 @@ const Body = () => {
         >
           Search
         </button>
-        <input type="text" value={user.user.name}
+        {/* <input type="text" value={user.user.name}
           onChange={(e) => setUser({ user: { name: e.target.value } })}
-        />
+        /> */}
       </div>
       {/* <OwlCarousel /> */}
       {restaurants?.length === 0 ? (

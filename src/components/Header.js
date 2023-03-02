@@ -1,10 +1,16 @@
 import { IMG_URL } from "../constant";
 import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
+import { useContext } from "react";
+import UserContext from "../utils/UserContext";
+
 const Header = ({ isLogging }) => {
-  let isTrue = true;
+
+  const { isDark, setIsDark } = useContext(UserContext)
+
+
   return (
-    <div className="flex justify-between bg-white shadow sticky top-0 z-10">
+    <div className={isDark ? "flex justify-between bg-white shadow sticky top-0 z-10" : "flex justify-between bg-gray-800 text-white shadow sticky top-0 z-10"}>
       <a href="/">
         <img className="h-[80px]" src={IMG_URL} alt="res-logo" />
       </a>
@@ -22,10 +28,11 @@ const Header = ({ isLogging }) => {
 
           <button className={useOnline() ? "bg-green-500 p-3 text-white" : "bg-red-500 p-3 text-white"}
             // style={{ backgroundColor: useOnline() ? "green" : "red" }}
-            onClick={() => isLogging(isTrue)}
+            onClick={() => isLogging(true)}
           >
             Logout
           </button>
+          <button className="p-3" onClick={() => setIsDark(!isDark)}>Dark Mode</button>
         </ul>
       </nav>
     </div>

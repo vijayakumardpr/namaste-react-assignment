@@ -25,17 +25,20 @@ const AppLayout = () => {
     }
   })
 
+  const [isDark, setIsDark] = useState(true);
+
   function isLogging(message) {
     setIsTrue(message);
   }
 
+  // value={{
+  //   user: user,
+  //   setUser: setUser
+  // }}
   return (
     <>
       <UserContext.Provider
-        value={{
-          user: user,
-          setUser: setUser
-        }} >
+        value={{ isDark, setIsDark }}>
         {isTrue ? (
           <Authentication isLogging={isLogging} />
         ) : (
