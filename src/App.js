@@ -9,6 +9,7 @@ import Profile from "./components/Profile";
 import Contactus from "./components/Contactus";
 import Task from "./components/Task";
 import UserContext from "./utils/UserContext";
+import DarkLightMode from "./utils/DarkLightMode";
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -31,24 +32,28 @@ const AppLayout = () => {
     setIsTrue(message);
   }
 
-  // value={{
-  //   user: user,
-  //   setUser: setUser
-  // }}
+
+
   return (
     <>
-      <UserContext.Provider
-        value={{ isDark, setIsDark }}>
-        {isTrue ? (
-          <Authentication isLogging={isLogging} />
-        ) : (
-          <>
-            <Header isLogging={isLogging} />
-            <Outlet />
-            <Footer />
-          </>
-        )}
-      </UserContext.Provider>
+      <DarkLightMode.Provider value={{ isDark, setIsDark }}>
+        <UserContext.Provider
+          value={{
+            user: user,
+            setUser: setUser
+          }}>
+
+          {isTrue ? (
+            <Authentication isLogging={isLogging} />
+          ) : (
+            <>
+              <Header isLogging={isLogging} />
+              <Outlet />
+              <Footer />
+            </>
+          )}
+        </UserContext.Provider >
+      </DarkLightMode.Provider>
     </>
   );
 };

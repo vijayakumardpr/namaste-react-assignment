@@ -3,19 +3,22 @@ import { Link } from "react-router-dom";
 import useOnline from "../utils/useOnline";
 import { useContext } from "react";
 import UserContext from "../utils/UserContext";
+import logo from "../assets/images/logo.png";
+import DarkLightMode from "../utils/DarkLightMode";
 
 const Header = ({ isLogging }) => {
 
-  const { isDark, setIsDark } = useContext(UserContext)
+  const { isDark, setIsDark } = useContext(DarkLightMode)
+
 
 
   return (
-    <div className={isDark ? "flex justify-between bg-white shadow sticky top-0 z-10" : "flex justify-between bg-gray-800 text-white shadow sticky top-0 z-10"}>
+    <div className={isDark ? "flex justify-between bg-white shadow sticky top-0 z-10 max-sm:flex-col" : "flex justify-between bg-gray-800 text-white shadow sticky top-0 z-10 max-sm:flex-col"}>
       <a href="/">
-        <img className="h-[80px]" src={IMG_URL} alt="res-logo" />
+        <img className="h-[80px] max-sm:my-0 mx-auto" src={logo} alt="res-logo" />
       </a>
       <nav>
-        <ul className="flex m-2">
+        <ul className="flex m-2 max-sm:flex-col">
           <Link className="p-3" to="/">
             <li >Home</li>
           </Link>

@@ -54,9 +54,12 @@ const RestaurantMenu = () => {
           <div>
             <div className="border-[1px] border-white h-44">
               <div className="text-lg font-bold p-2">OFFER</div>
-              {restaurant?.offerMeta[0]?.header} |
-              {restaurant?.offerMeta[0]?.coupon_code}
-              {restaurant?.offerMeta[0]?.description}
+              {restaurant?.offerMeta?.map((el, i) => (
+                <div key={i}>
+                  <div>{el.header}</div>
+                  <div>{el.coupon_code}|{el.description}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

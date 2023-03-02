@@ -7,13 +7,16 @@ import { Link } from "react-router-dom";
 import OwlCarousel from "./OwlCarousel";
 import Task from "./Task"
 import UserContext from "../utils/UserContext";
+import DarkLightMode from "../utils/DarkLightMode";
 import { useContext } from "react";
 
 const Body = () => {
   const { restaurants, allRestaurants, resName, setResName, setRestaurants } =
     useRestaurantCard();
 
-  const { isDark, setIsDark } = useContext(UserContext);
+  const { isDark, setIsDark } = useContext(DarkLightMode);
+  const { user, setUser } = useContext(UserContext);
+
 
 
   const isOnline = useOnline();
@@ -52,15 +55,15 @@ const Body = () => {
         >
           Search
         </button>
-        {/* <input type="text" value={user.user.name}
+        <input type="text" value={user.user.name}
           onChange={(e) => setUser({ user: { name: e.target.value } })}
-        /> */}
+        />
       </div>
       {/* <OwlCarousel /> */}
       {restaurants?.length === 0 ? (
-        <h1> No data found</h1>
+        <h1 className="text-center text-lg font-bold my-5"> No data found</h1>
       ) : (
-        <div className="flex flex-wrap gap-4 justify-center align-middle my-0 mx-auto">
+        <div className="flex flex-wrap gap-4 justify-center my-0 mx-auto">
           {restaurants?.map((items, i) => {
             return (
               <Link to={"/restaurants/" + items.data.id} key={items.data.id}>
