@@ -4,14 +4,28 @@ import { IMGS_URL } from "../constant";
 
 import useRestaurant from "../utils/useRestaurant";
 
+import { useDispatch } from "react-redux";
+import { addItem, clearCart } from "../utils/cartSlice"
 const RestaurantMenu = () => {
   const { ids } = useParams();
+
+  const dispatch = useDispatch()
 
   const restaurant = useRestaurant(ids);
 
   if (!restaurant) return <Shimmer />;
 
-  console.log(restaurant);
+
+  function handleItem(item) {
+    dispatch(addItem(item))
+  }
+
+  function clearCarts() {
+    dispatch(clearCart())
+  }
+
+
+  // console.log(restaurant);
   return (
     <div className="flex flex-col ">
       <div className="bg-gray-900 flex justify-center p-10 text-white sticky top-0 z-10">
@@ -65,27 +79,30 @@ const RestaurantMenu = () => {
         </div>
       </div>
 
-      {console.log(Object.values(restaurant?.menu?.items))}
+      {/* {console.log(Object.values(restaurant?.menu?.items))} */}
+
+      {/* <button className="p-2 m-2 bg-blue-600" onClick={() => handleItem()}>Add Item</button>
+      <button className="p-2 m-2 bg-red-600" onClick={() => clearCarts()}>clearCart</button> */}
       <div>
-        {Object.values(restaurant?.menu?.items).map((el, i) => (
+        {Object.values(restaurant?.menu?.items).map((item, i) => (
           <div
             key={i}
             className="my-5 py-5 flex justify-center items-center gap-4 "
           >
             <div className="w-2/6">
-              <div>{el?.name}</div>
-              <div>₹{el?.price / 100}</div>
-              <div>{el?.description}</div>
+              <div>{item?.name}</div>
+              <div>₹{item?.price / 100}.00</div>
+              <div>{item?.description}</div>
             </div>
             <div>
-              {el?.cloudinaryImageId != "" &&
-                el?.cloudinaryImageId != undefined && (
+              {item?.cloudinaryImageId != "" &&
+                item?.cloudinaryImageId != undefined && (
                   <img
                     className="h-16 w-24 rounded-md"
-                    src={IMGS_URL + el?.cloudinaryImageId}
+                    src={IMGS_URL + item?.cloudinaryImageId}
                   />
                 )}
-              <button className="w-24 text-xs py-2 font-bold text-green-700 border-[1px] border-gray-300">
+              <button className="w-24 text-xs py-2 font-bold text-green-700 border-[1px] border-gray-300" onClick={() => handleItem(item)}>
                 ADD
               </button>
             </div>

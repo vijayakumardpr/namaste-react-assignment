@@ -7,9 +7,12 @@ import Footer from "./components/Footer";
 import Error from "./components/Error";
 import Profile from "./components/Profile";
 import Contactus from "./components/Contactus";
+import Cart from "./components/Cart";
 import Task from "./components/Task";
 import UserContext from "./utils/UserContext";
 import DarkLightMode from "./utils/DarkLightMode";
+import store from "./utils/store";
+import { Provider } from "react-redux"
 
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import RestaurantMenu from "./components/RestaurantMenu";
@@ -33,7 +36,7 @@ const AppLayout = () => {
   }
 
   return (
-    <>
+    <Provider store={store}>
       <DarkLightMode.Provider value={{ isDark, setIsDark }}>
         <UserContext.Provider
           value={{
@@ -52,7 +55,7 @@ const AppLayout = () => {
           )}
         </UserContext.Provider >
       </DarkLightMode.Provider>
-    </>
+    </Provider>
   );
 };
 
@@ -80,13 +83,16 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/instamart",
-
         element: (
           <Suspense fallback={<h1>Loading...</h1>}>
             <Instamart />
           </Suspense>
         ),
       },
+      {
+        path: "/cart",
+        element: <Cart />,
+      }
     ],
   },
 ]);
