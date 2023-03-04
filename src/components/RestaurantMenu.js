@@ -52,7 +52,7 @@ const RestaurantMenu = () => {
         </div>
         <div>
           <div>
-            <div className="border-[1px] border-white h-44">
+            <div className="border border-white h-44">
               <div className="text-lg font-bold p-2">OFFER</div>
               {restaurant?.offerMeta?.map((el, i) => (
                 <div key={i}>

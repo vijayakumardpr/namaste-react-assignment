@@ -32,15 +32,13 @@ const AppLayout = () => {
     setIsTrue(message);
   }
 
-
-
   return (
     <>
       <DarkLightMode.Provider value={{ isDark, setIsDark }}>
         <UserContext.Provider
           value={{
-            user: user,
-            setUser: setUser
+            user,
+            setUser
           }}>
 
           {isTrue ? (

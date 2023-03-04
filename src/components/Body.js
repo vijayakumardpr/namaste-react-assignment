@@ -17,7 +17,7 @@ const Body = () => {
   const { isDark, setIsDark } = useContext(DarkLightMode);
   const { user, setUser } = useContext(UserContext);
 
-
+  console.log(user);
 
   const isOnline = useOnline();
 
@@ -56,8 +56,15 @@ const Body = () => {
           Search
         </button>
         <input type="text" value={user.user.name}
-          onChange={(e) => setUser({ user: { name: e.target.value } })}
+          onChange={(e) => setUser((user) => {
+            return { ...user, user: { name: e.target.value } }
+          })
+          }
         />
+        {/* {name: "Steve smith",place: "Australia"  } */}
+        {/* <input type="text" value={user.name}
+          onChange={(e) => setUser({ ...user, name: e.target.value })}
+        /> */}
       </div>
       {/* <OwlCarousel /> */}
       {restaurants?.length === 0 ? (
