@@ -14,38 +14,38 @@ const Header = ({ isLogging }) => {
 
   const cartItem = useSelector(store => store.cart.items)
 
-  console.log(cartItem);
+  //console.log(cartItem);
 
   return (
-    <div className={isDark ? "flex justify-between bg-white shadow sticky top-0 z-10 max-sm:flex-col" : "flex justify-between bg-gray-800 text-white shadow sticky top-0 z-10 max-sm:flex-col"}>
+    <div className={isDark ? "px-4 flex justify-between items-center bg-white shadow sticky top-0 z-10 max-sm:flex-col" : "px-4 flex justify-between items-center bg-gray-800 text-white shadow sticky top-0 z-10 max-sm:flex-col"}>
       <Link to="/">
-        <img className="h-[80px] max-sm:my-0 mx-auto" src={logo} alt="res-logo" />
+        <img className="h-12 max-sm:my-0 mx-auto" src={IMG_URL} alt="res-logo" />
       </Link>
       <nav>
-
         <ul className="flex m-2 max-sm:flex-col">
           <Link className="p-3" to="/">
             <li >Home</li>
           </Link>
-          <li className="p-3">Help</li>
+          <Link to="/favourite">
+            <li className="p-3">Favourite</li>
+          </Link>
           <Link className="p-3" to="/profile">
             <li>Profile</li>
           </Link>
           <Link to="/cart">
             <li className="p-3 relative">
-              <div className="text-3xl"><AiOutlineShoppingCart /></div>
-              <div className="absolute bottom-8 left-10">{cartItem.length}</div>
+              <div className="text-2xl"><AiOutlineShoppingCart /></div>
+              {cartItem.length != 0 && <div className="absolute bottom-7 left-8 text-sm">{cartItem.length}</div>}
             </li>
           </Link>
           <Link className="p-3" to="instamart"><li>Instamart</li></Link>
 
           <button className={useOnline() ? "bg-green-500 p-3 text-white" : "bg-red-500 p-3 text-white"}
-            // style={{ backgroundColor: useOnline() ? "green" : "red" }}
             onClick={() => isLogging(true)}
           >
             Logout
           </button>
-          <button className="p-3" onClick={() => setIsDark(!isDark)}>Dark Mode</button>
+          <button className="pl-3" onClick={() => setIsDark(!isDark)}>Dark Mode</button>
         </ul>
       </nav>
     </div>

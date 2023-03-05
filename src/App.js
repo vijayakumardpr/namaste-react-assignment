@@ -1,4 +1,5 @@
 import React, { useState, lazy, Suspense } from "react";
+import RestaurantMenu from "./components/RestaurantMenu";
 import ReactDOM from "react-dom/client";
 import Authentication from "./components/Authentication";
 import Header from "./components/Header";
@@ -8,14 +9,14 @@ import Error from "./components/Error";
 import Profile from "./components/Profile";
 import Contactus from "./components/Contactus";
 import Cart from "./components/Cart";
+import Favourite from "./components/Favourite";
 import Task from "./components/Task";
 import UserContext from "./utils/UserContext";
 import DarkLightMode from "./utils/DarkLightMode";
 import store from "./utils/store";
 import { Provider } from "react-redux"
-
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import RestaurantMenu from "./components/RestaurantMenu";
+
 //import Instamart from "./components/Instamart"
 
 const Instamart = lazy(() => import("./components/Instamart"));
@@ -76,6 +77,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/contactus",
         element: <Contactus />,
+      },
+      {
+        path: "/favourite",
+        element: <Favourite />,
       },
       {
         path: "/restaurants/:ids",

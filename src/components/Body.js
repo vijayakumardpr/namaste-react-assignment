@@ -4,7 +4,6 @@ import { filterData } from "../utils/helper";
 import useOnline from "../utils/useOnline";
 import useRestaurantCard from "../utils/useRestaurantCard";
 import { Link } from "react-router-dom";
-import OwlCarousel from "./OwlCarousel";
 import Task from "./Task"
 import UserContext from "../utils/UserContext";
 import DarkLightMode from "../utils/DarkLightMode";
@@ -17,18 +16,19 @@ const Body = () => {
   const { isDark, setIsDark } = useContext(DarkLightMode);
   const { user, setUser } = useContext(UserContext);
 
-  console.log(user);
+  //console.log(user);
 
   const isOnline = useOnline();
 
   if (!isOnline) return <Task />
 
-  // if (!isOnline)
-  //   return <h1> 🗼Offline, Pls check your internet connection... </h1>;
+  if (!isOnline)
+    return <h1> 🗼Offline, Pls check your internet connection... </h1>;
+
 
   if (allRestaurants?.length === 0) return <Shimmer />;
 
-
+  //console.log(restaurants);
   return (
     <div className={isDark ? "bg-white text-gray-800" : "bg-gray-800 text-white"}>
       <div className="flex justify-center">

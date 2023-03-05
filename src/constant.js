@@ -1,5 +1,5 @@
 export const IMG_URL =
-  "https://image.similarpng.com/very-thumbnail/2021/09/Good-food-logo-design-on-transparent-background-PNG.png";
+  "https://cdn.worldvectorlogo.com/logos/swiggy-1.svg";
 
 export const IMG_URL_RESTAURANTMENU = "https://www.swiggy.com/dapi/menu/v4/full?lat=11.163008225945527&lng=77.35719759017229&menuId="
 
