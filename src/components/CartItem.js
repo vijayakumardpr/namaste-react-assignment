@@ -3,16 +3,18 @@ import { useSelector } from "react-redux"
 import { useDispatch } from "react-redux"
 import { addItem, removeItem } from "../utils/cartSlice"
 
-const CartItem = ({ cloudinaryImageId, name, price, id }) => {
+const CartItem = ({ cloudinaryImageId, name, price, id, defaultPrice, quantity }) => {
 
     let cartItems = useSelector(store => store.cart.items)
 
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
 
 
-    function deleteItem(id) {
-        dispatch(removeItem(id))
-    }
+    // function deleteItem(id) {
+    //     dispatch(removeItem(id))
+    // }
+
+    const total = cartItems.find(item => item.id === id)
 
     console.log(cartItems);
 
@@ -21,9 +23,9 @@ const CartItem = ({ cloudinaryImageId, name, price, id }) => {
             <img className="w-24" src={IMGS_URL + cloudinaryImageId} alt={name} />
             <div className="flex flex-col items-center">
                 <div>{name}</div>
-                <div>₹{price / 100}.00</div>
+                <div>₹{defaultPrice / 100 | price / 100}  * {quantity}</div>
             </div>
-            <button className="p-2 bg-red-800 text-white" onClick={() => deleteItem(id)}>Remove Item</button>
+            <div>₹{(defaultPrice / 100 | price / 100) * total.quantity} </div>
         </div>
     )
 }

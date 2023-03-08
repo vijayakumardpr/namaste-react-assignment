@@ -16,6 +16,10 @@ const Header = ({ isLogging }) => {
 
   //console.log(cartItem);
 
+  const totalQty = cartItem.reduce((pre, cur) => pre + cur.quantity, 0)
+
+
+
   return (
     <div className={isDark ? "px-4 flex justify-between items-center bg-white shadow sticky top-0 z-10 max-sm:flex-col" : "px-4 flex justify-between items-center bg-gray-800 text-white shadow sticky top-0 z-10 max-sm:flex-col"}>
       <Link to="/">
@@ -35,7 +39,7 @@ const Header = ({ isLogging }) => {
           <Link to="/cart">
             <li className="p-3 relative">
               <div className="text-2xl"><AiOutlineShoppingCart /></div>
-              {cartItem.length != 0 && <div className="absolute bottom-7 left-8 text-sm">{cartItem.length}</div>}
+              {cartItem.length != 0 && <div className="absolute bottom-7 left-8 text-sm">{totalQty}</div>}
             </li>
           </Link>
           <Link className="p-3" to="instamart"><li>Instamart</li></Link>

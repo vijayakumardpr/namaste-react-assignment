@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux"
+import { Link } from "react-router-dom";
 import RestaurantCard from "./RestaurantCard";
 
 const Favourite = () => {
@@ -10,7 +11,10 @@ const Favourite = () => {
         <div className="flex flex-wrap">
             {
                 favouriteItems.map((item, i) => {
-                    return <RestaurantCard key={i} {...item} />
+                    return (
+                        <Link to={"/restaurants/" + item.id} key={item.id}>
+                            <RestaurantCard  {...item} />
+                        </Link>)
                 })
             }
         </div>

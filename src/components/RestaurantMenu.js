@@ -6,8 +6,8 @@ import { AiFillStar, AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { IoIosTime } from "react-icons/io"
 import { HiOutlineCurrencyRupee } from "react-icons/hi"
 import useRestaurant from "../utils/useRestaurant";
-import { useDispatch } from "react-redux";
-import { addItem, clearCart } from "../utils/cartSlice"
+import { useDispatch, useSelector } from "react-redux";
+import { addItem, clearCart, removeItem } from "../utils/cartSlice"
 import { favouriteItem } from "../utils/favouriteSlice"
 
 const RestaurantMenu = () => {
@@ -19,6 +19,9 @@ const RestaurantMenu = () => {
 
   const restaurant = useRestaurant(ids);
 
+  const cartItem = useSelector(store => store.cart.items)
+
+
   if (!restaurant) return <Shimmer />;
 
 
@@ -26,15 +29,18 @@ const RestaurantMenu = () => {
     dispatch(addItem(item))
   }
 
-  function clearCarts() {
-    dispatch(clearCart())
+  function deleteItem(item) {
+    dispatch(removeItem(item))
   }
+
 
   function favouriteShop(item) {
     dispatch(favouriteItem(item))
     setIsFavourite(!isFavourite)
   }
-  console.log(isFavourite);
+
+  //console.log(isFavourite);
+
   return (
     <div className="flex flex-col p-10 max-w-4xl my-0 mx-auto overflow-hidden">
       <div className="flex flex-col ">
@@ -95,9 +101,15 @@ const RestaurantMenu = () => {
                     src={IMGS_URL + item?.cloudinaryImageId}
                   />
                 )}
-              <button className="w-24 text-xs py-2 font-bold text-green-700 shadow rounded-md border border-gray-300" onClick={() => handleItem(item)}>
-                ADD
-              </button>
+              <div className="flex items-center shadow rounded-md border border-gray-300">
+                <button className="px-2 py-1 text-gray-800" onClick={() => deleteItem(item.id)}>-</button>
+                <div className="px-4 py-1 text-xs font-bold text-green-700 " >
+                  {cartItem.find(items => items.id === item.id) ?
+                    cartItem.find(items => items.id === item.id)?.quantity :
+                    "0"}
+                </div>
+                <button className="px-2 py-1 text-gray-800" onClick={() => handleItem(item)}>+</button>
+              </div>
             </div>
           </div>
         ))}

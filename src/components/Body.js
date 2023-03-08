@@ -30,8 +30,8 @@ const Body = () => {
 
   //console.log(restaurants);
   return (
-    <div className={isDark ? "bg-white text-gray-800" : "bg-gray-800 text-white"}>
-      <div className="flex justify-center">
+    <div className={isDark ? "bg-white text-gray-800 py-10" : "bg-gray-800 text-white py-10"}>
+      <div className="flex justify-center my-5">
         <input
           type="search"
           placeholder="Search"
@@ -67,8 +67,8 @@ const Body = () => {
         /> */}
       </div>
       {/* <OwlCarousel /> */}
-      {restaurants?.length === 0 ? (
-        <h1 className="text-center text-lg font-bold my-5"> No data found</h1>
+      {restaurants?.length === 0 || restaurants === "no" ? (
+        <h1 className="text-center text-lg font-bold my-5"> {restaurants !== "no" ? "No data found" : "Please enter at least 3 characters to search..."}</h1>
       ) : (
         <div className="flex flex-wrap gap-4 justify-center my-0 mx-auto">
           {restaurants?.map((items, i) => {
